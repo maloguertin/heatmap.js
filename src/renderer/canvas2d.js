@@ -196,7 +196,7 @@ var Canvas2dRenderer = (function Canvas2dRendererClosure() {
         var templateAlpha = (value-min)/(max-min);
         // this fixes #176: small values are not visible because globalAlpha < .01 cannot be read from imageData
         shadowCtx.globalAlpha = templateAlpha < .01 ? .01 : templateAlpha;
-
+        shadowCtx.globalCompositeOperation = 'destination-out'
         shadowCtx.drawImage(tpl, rectX, rectY);
 
         // update renderBoundaries
